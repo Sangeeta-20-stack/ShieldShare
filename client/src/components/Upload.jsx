@@ -18,7 +18,9 @@ export default function Upload() {
       formData.append("expiresInHours", expires);
       if (password) formData.append("password", password);
 
-      const res = await axios.post("https://shieldshare-backend.onrender.com/api/files/upload", formData);
+     const res = await axios.post("https://shieldshare-backend.onrender.com/api/files/upload", formData);
+
+
       toast.success("File uploaded successfully!");
       navigator.clipboard.writeText(res.data.downloadLink);
       toast("Link copied to clipboard", { icon: "🔗" });
@@ -77,4 +79,5 @@ export default function Upload() {
     </div>
   );
 }
+
 
