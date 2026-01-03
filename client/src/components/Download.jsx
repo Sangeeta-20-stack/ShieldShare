@@ -14,7 +14,10 @@ export default function Download() {
       setLoading(true);
       let cleanToken = token.includes("/download/") ? token.split("/download/")[1] : token;
 
-      const res = await axios.get(`https://shieldshare-backend.onrender.com/api/files/download/${cleanToken}${password ? `?password=${password}` : ""}`, { responseType: "blob" });
+     const res = await axios.get(
+        `https://shieldshare-backend.onrender.com/api/files/download/${cleanToken}${password ? `?password=${password}` : ""}`,
+        { responseType: "blob" }
+      );
       const blobUrl = URL.createObjectURL(new Blob([res.data]));
       const a = document.createElement("a");
       a.href = blobUrl;
@@ -56,4 +59,5 @@ export default function Download() {
     </div>
   );
 }
+
 
